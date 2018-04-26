@@ -44,7 +44,7 @@ const refreshBitColAt = (unit, line) => bits =>
 // util to toggle bit display
 const colorBit = color => el => el.style.fill = color
 const turnOn = colorBit('green')
-const turnOff = colorBit('gray')
+const turnOff = colorBit('#3b3b3b')
 
 clock.ontick = (evt) => {
 
