@@ -7,7 +7,7 @@
       <g transform="translate(-10,82%)" pointer-events="visible">
         <animateTransform attributeType="translate" begin="enable" end="disable"
           from="-10,82%" to="100%+10,82%" dur="6" final="restore" />
-        <circle cx="0" cy="0" r="4" fill="white" opacity="0.4" />
+        <circle cx="0" cy="0" r="4" fill="#275a27" />
       </g>
     </symbol>
   </defs>
