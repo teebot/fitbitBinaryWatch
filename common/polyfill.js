@@ -1,6 +1,7 @@
-//function polyfill() {
+
   // repeat polyfill
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat#Polyfill
+if (!String.prototype.repeat) {
   String.prototype.repeat = function(count) {
     'use strict';
     if (this == null) {
@@ -33,7 +34,10 @@
     }
     return rpt;
   }
-  
+}
+
+
+if (!String.prototype.padStart) {
   // padstart polyfill
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#Polyfill
   String.prototype.padStart = function padStart(targetLength,padString) {
@@ -50,4 +54,4 @@
           return padString.slice(0,targetLength) + String(this);
       }
   };
-//}
+}

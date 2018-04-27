@@ -1,3 +1,7 @@
 .background {
-  viewport-fill: black;
+  viewport-fill: #0a120a;
+}
+
+.bit {
+  fill: #3b3b3b
 }

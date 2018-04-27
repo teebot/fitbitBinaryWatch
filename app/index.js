@@ -9,20 +9,19 @@ import { HeartRateSensor } from "heart-rate"
 clock.granularity = 'seconds'
 
 // @param unit = h | m | s
-// @param line = 0 | 1
+// @param line = 0 | 1  
 // @param i = number 0 to 3
 // getBitEl('h', 0, 1) === <circle class="h0 1" />
 const getBitEl = (unit, line, i) =>
   document.getElementsByClassName(`${unit}${line} ${i}`)[0]
 
 // @param nums: Array<number>
-// explodeNumbers([12, 2]) => [ "1", "2", "2" ]
-const explodeNumbers = nums =>
-  nums.reduce((acc, n) => 
-    acc = [...acc, ...n.toString().split('')], [])
+// explodeNumbers(12) => [ "1", "2"]
+const explodeNumber = n =>
+  n.toString().split('')
 
 // @param num: string
-// toBinary(2) => ['0001']
+// toBinary(2) => ['1000']
 const toBinary = num =>
   parseInt(num, 10).toString(2).padStart(4, '0').split('')
 
@@ -42,9 +41,28 @@ const refreshBitColAt = (unit, line) => bits =>
   })
 
 // util to toggle bit display
-const colorBit = color => el => el.style.fill = color
-const turnOn = colorBit('green')
-const turnOff = colorBit('#3b3b3b')
+const colorBitTo = color => el => el.style.fill = color
+const turnOn = colorBitTo('#00ff00')
+const turnOff = colorBitTo('#3b3b3b')
+
+// util to not trigger a function for the same value type arg
+const cache = fn => {
+  let cached
+  return (val, unit) => {
+
+    if (cached && cached === val) return
+
+    cached = val
+    fn(val, unit)
+  }
+}
+
+const digitsToBits = (val, unit) => 
+  explodeNumber(val)
+    .map(toBinary)
+    .forEach((x, i) => 
+       refreshBitColAt(unit, i)(x)
+    )
 
 clock.ontick = (evt) => {
 
@@ -54,16 +72,10 @@ clock.ontick = (evt) => {
   const mins = util.zeroPad(today.getMinutes())
   const secs = util.zeroPad(today.getSeconds())
   
-  // assign each column
-  const [hour0Bits, hour1Bits, min0Bits, min1Bits, sec0Bits, sec1Bits] = explodeNumbers([hours, mins, secs]).map(toBinary)
-  refreshBitColAt('h', 0)(hour0Bits)
-  refreshBitColAt('h', 1)(hour1Bits)
+  cache(digitsToBits)(hours, 'h')
+  cache(digitsToBits)(mins, 'm')
   
-  refreshBitColAt('m', 0)(min0Bits)
-  refreshBitColAt('m', 1)(min1Bits)
-  
-  refreshBitColAt('s', 0)(sec0Bits)
-  refreshBitColAt('s', 1)(sec1Bits)
+  digitsToBits(secs, 's')
 }
 
 
@@ -73,7 +85,6 @@ HR MONITOR
 const getHrPeakByIndex = i => document.getElementById('hrpeakinstance' + i)
 // Create a new instance of the HeartRateSensor object
 const hrm = new HeartRateSensor()
-
 
 let currentIntervalId = null
 const refreshInterval = (hr) => {
@@ -93,4 +104,3 @@ hrm.onreading = function() {
 
 // Begin monitoring the sensor
 hrm.start()
-
