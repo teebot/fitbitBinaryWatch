@@ -2,5 +2,4 @@
 # Fitbit Binary Clockface and HR Monitor
 
 
-<img width="557" alt="screen shot 2018-04-27 at 01 19 18" src="https://user-images.githubusercontent.com/1481931/39336677-07a0b114-49b9-11e8-8a47-53bee64f1aee.png">
-
+<img width="560" alt="screen shot 2018-04-27 at 08 08 48" src="https://user-images.githubusercontent.com/1481931/39400153-3ae1d80a-4b2b-11e8-974e-920e89747d57.png">
