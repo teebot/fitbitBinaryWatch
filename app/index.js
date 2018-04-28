@@ -83,6 +83,7 @@ clock.ontick = (evt) => {
 HR MONITOR
 **/
 const getHrPeakByIndex = i => document.getElementById('hrpeakinstance' + i)
+const hrPeaks = [0,1,2,3,4,5,6,7].map(getHrPeakByIndex)
 // Create a new instance of the HeartRateSensor object
 const hrm = new HeartRateSensor()
 
@@ -92,8 +93,7 @@ const refreshInterval = (hr) => {
   if (currentIntervalId) clearTimeout(currentIntervalId)
   
   currentIntervalId = setInterval(() => {
-    const el = getHrPeakByIndex(currentHrBeatInstance % 8)
-    el.animate('enable')                                     
+    hrPeaks[currentHrBeatInstance % 8].animate('enable')                                     
     currentHrBeatInstance++
   }, 60 / hr * 1000)
 }

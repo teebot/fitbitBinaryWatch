@@ -7,7 +7,9 @@
     <symbol id="hrpeak">
       <g transform="translate(-10,82%)" pointer-events="visible">
         <animateTransform attributeType="translate" begin="enable" end="disable"
-          from="-10,82%" to="100%+10,82%" dur="6" final="remove" />
+          from="-10,82%" to="100%+10,82%" dur="3" final="remove" />
+        <animateTransform attributeType="scale" easing="ease-out-in" from="1" to="3" begin="enable"  dur="1.5" />
+        <animateTransform attributeType="scale" easing="ease-in-out" from="3" to="1"  begin="enable+1.5" dur="1.5" />
         <circle cx="0" cy="0" r="4" fill="#275a27" />
       </g>
     </symbol>
