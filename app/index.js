@@ -3,7 +3,7 @@ import document from 'document'
 import { preferences } from 'user-settings'
 import * as util from '../common/utils'
 import '../common/polyfill'
-import { HeartRateSensor } from "heart-rate"
+import { HeartRateSensor } from 'heart-rate'
 
 // Update the clock every minute
 clock.granularity = 'seconds'
@@ -16,7 +16,7 @@ const getBitEl = (unit, line, i) =>
   document.getElementsByClassName(`${unit}${line} ${i}`)[0]
 
 // @param nums: Array<number>
-// explodeNumbers(12) => [ "1", "2"]
+// explodeNumbers(12) => [ '1', '2']
 const explodeNumber = n =>
   n.toString().split('')
 
@@ -65,7 +65,6 @@ const digitsToBits = (val, unit) =>
     )
 
 clock.ontick = (evt) => {
-
   const today = evt.date
   // 12h format
   const hours = util.zeroPad(today.getHours() % 12 || 12)
@@ -82,10 +81,11 @@ clock.ontick = (evt) => {
 /**
 HR MONITOR
 **/
-const getHrPeakByIndex = i => document.getElementById('hrpeakinstance' + i)
-const hrPeaks = [0,1,2,3,4,5,6,7].map(getHrPeakByIndex)
 // Create a new instance of the HeartRateSensor object
 const hrm = new HeartRateSensor()
+
+const getHrPeakByIndex = i => document.getElementById('hrpeakinstance' + i)
+const hrPeaks = [0,1,2,3,4,5,6,7].map(getHrPeakByIndex)
 
 let currentIntervalId = null
 const refreshInterval = (hr) => {
