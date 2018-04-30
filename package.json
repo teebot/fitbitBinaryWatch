@@ -1,4 +1,10 @@
 {
+  "dependencies": {
+    "clock": "file:./web/clock",
+    "document": "file:web/document",
+    "heart-rate": "file:web/heart-rate",
+    "user-settings": "file:web/user-settings"
+  },
   "fitbit": {
     "appUUID": "4fe4f432-ac4b-4077-9178-03cae2adf50c",
     "appType": "clockface",

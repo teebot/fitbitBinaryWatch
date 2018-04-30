@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="web/web.css">
+</head>
+
+<body>
+    <svg class="background">
+
+        <!-- HR Monitor -->
+        <rect x="0" y="82%" width="100%" height="1" fill="darkgreen" />
+
+        <defs>
+            <symbol id="hrpeak">
+                <g transform="translate(-10 246)" pointer-events="visible">
+                    <animateTransform type="translate" begin="enable" end="disable" from="-10,82%" to="100%+10,82%" dur="3" final="remove" />
+                    <animateTransform type="scale" easing="ease-out-in" from="1" to="3" begin="enable" dur="1.5" />
+                    <animateTransform type="scale" easing="ease-in-out" from="3" to="1" begin="enable+1.5" dur="1.5" />
+                    <circle cx="0" cy="0" r="4" fill="#275a27" />
+                </g>
+            </symbol>
+        </defs>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance0" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance1" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance2" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance3" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance4" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance5" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance6" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance7" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+        <svg width="100%" height="100%">
+            <use id="hrpeakinstance8" href="#hrpeak" width="100%" height="100%" />
+        </svg>
+
+
+
+
+
+        <!-- Binary Clock -->
+        <g id="col0">
+            <circle cx="50" cy="110" r="12" class="h0 2 bit" />
+            <!-- 2 -->
+            <circle cx="50" cy="140" r="12" class="h0 3 bit" />
+            <!-- 1 -->
+        </g>
+
+        <g id="col1">
+            <circle cx="90" cy="50" r="12" class="h1 0 bit" />
+            <!-- 8 -->
+            <circle cx="90" cy="80" r="12" class="h1 1 bit" />
+            <!-- 4 -->
+            <circle cx="90" cy="110" r="12" class="h1 2 bit" />
+            <!-- 2 -->
+            <circle cx="90" cy="140" r="12" class="h1 3 bit" />
+            <!-- 1 -->
+        </g>
+
+
+        <g id="col2">
+            <circle cx="140" cy="80" r="12" class="m0 1 bit" />
+            <!-- 4 -->
+            <circle cx="140" cy="110" r="12" class="m0 2 bit" />
+            <!-- 2 -->
+            <circle cx="140" cy="140" r="12" class="m0 3 bit" />
+            <!-- 1 -->
+        </g>
+
+        <g id="col3">
+            <circle cx="180" cy="50" r="12" class="m1 0 bit" />
+            <!-- 8 -->
+            <circle cx="180" cy="80" r="12" class="m1 1 bit" />
+            <!-- 4 -->
+            <circle cx="180" cy="110" r="12" class="m1 2 bit" />
+            <!-- 2 -->
+            <circle cx="180" cy="140" r="12" class="m1 3 bit" />
+            <!-- 1 -->
+        </g>
+
+
+
+        <g id="col4">
+            <circle cx="230" cy="80" r="12" class="s0 1 bit" />
+            <!-- 4 -->
+            <circle cx="230" cy="110" r="12" class="s0 2 bit" />
+            <!-- 2 -->
+            <circle cx="230" cy="140" r="12" class="s0 3 bit" />
+            <!-- 1 -->
+        </g>
+
+        <g id="col5">
+            <circle cx="270" cy="50" r="12" class="s1 0 bit" />
+            <!-- 8 -->
+            <circle cx="270" cy="80" r="12" class="s1 1 bit" />
+            <!-- 4 -->
+            <circle cx="270" cy="110" r="12" class="s1 2 bit" />
+            <!-- 2 -->
+            <circle cx="270" cy="140" r="12" class="s1 3 bit" />
+            <!-- 1 -->
+        </g>
+
+        <text x="300" y="60" fill="#333333" font-family="System-Regular">8</text>
+        <text x="300" y="90" fill="#333333" font-family="System-Regular">4</text>
+        <text x="300" y="120" fill="#333333" font-family="System-Regular">2</text>
+        <text x="300" y="150" fill="#333333" font-family="System-Regular">1</text>
+
+
+
+        <defs>
+            <symbol id="glitch">
+                <g transform="translate(0,-100)" pointer-events="visible">
+                    <animateTransform type="translate" begin="load" dur="1" easing="ease-out-in" repeatCount="indefinite" repeatDur="7" from="0,-10%"
+                        to="0,110%" final="restore" />
+                    <animate attributeName="opacity" begin="load" from="0" to="1" dur="0.5" final="restore" repeatCount="indefinite" repeatDur="0.3"
+                    />
+                    <animate attributeName="opacity" begin="load+0.5" from="1" to="0" dur="0.5" final="restore" repeatCount="indefinite" repeatDur="0.7"
+                    />
+                    <rect x="0" y="0%" width="100%" height="40" fill="#000000" opacity="0.4" />
+                </g>
+            </symbol>
+        </defs>
+        <svg width="100%" height="100%">
+            <use id="glitchinstance" href="#glitch" width="100%" height="100%" />
+        </svg>
+
+        <image href="./oldcrt.png" width="100%" height="100%" opacity="0.6" />
+    </svg>
+
+    <script src="./app/index.js" />
+</body>
+
+</html>
