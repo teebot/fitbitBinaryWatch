@@ -49,7 +49,6 @@ const turnOff = colorBitTo('#3b3b3b')
 const cache = fn => {
   let cached
   return (val, unit) => {
-
     if (cached && cached === val) return
 
     cached = val
@@ -66,8 +65,15 @@ const digitsToBits = (val, unit) =>
 
 clock.ontick = (evt) => {
   const today = evt.date
-  // 12h format
-  const hours = util.zeroPad(today.getHours() % 12 || 12)
+
+  let hours = today.getHours()
+  if (preferences.clockDisplay === "12h") {
+    // 12h format
+    hours = hours % 12 || 12;
+  } else {
+    // 24h format
+    hours = util.zeroPad(hours);
+  }
   const mins = util.zeroPad(today.getMinutes())
   const secs = util.zeroPad(today.getSeconds())
   
